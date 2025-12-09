@@ -1,0 +1,172 @@
+header {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+}
+
+.logo img {
+  height: 100px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  margin-left: 40px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #f8f6f6;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-links a:hover {
+  background-color: #1aab8a;
+}
+
+.nav-links li.spacer {
+  margin-left: auto;
+  width: 0;
+  padding: 0;
+}
+
+.nav-links .button {
+  background: #1aab8a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 800ms ease all;
+  font-size: 18px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links .button:hover {
+  background: #fff;
+  color: #1aab8a;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger span {
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-icon {
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(9, 9, 121, 1);
+    position: absolute;
+    top: 80px;
+    left: -20px;
+    width: 90%;
+    padding: 20px;
+    z-index: 100;
+    animation: slideDown 0.3s ease forwards;
+    border-radius: 50px;
+  }
+
+ 
+  .nav-links li.spacer {
+    display: none;
+  }
+
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li:nth-child(5) {
+    margin-left: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

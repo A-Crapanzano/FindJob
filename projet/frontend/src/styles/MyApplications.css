@@ -1,0 +1,94 @@
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 2.5rem;
+  color: #1aab8a;
+  margin-bottom: 10px;
+}
+
+.main-content > p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.application-card {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.application-card h2 {
+  font-size: 1.8rem;
+  color: #1aab8a;
+  margin-bottom: 10px;
+}
+
+.application-card p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.application-card .button {
+  background: #1aab8a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 800ms ease all;
+  font-size: 16px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.application-card .button:hover {
+  background: #fff;
+  color: #1aab8a;
+  border: 2px solid #1aab8a;
+}
+
+.job-card-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .main-content h1 {
+    font-size: 2rem;
+  }
+
+  .main-content > p {
+    font-size: 1rem;
+  }
+
+  .application-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .application-card p {
+    font-size: 0.9rem;
+  }
+}

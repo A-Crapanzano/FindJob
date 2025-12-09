@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+.login-page{
+    min-height: 100vh;
+    display: grid;              
+    place-items: center;        
+    padding: 24px;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+
+
+.password-wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+footer {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button-primary{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    background: #1aab8a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 800ms ease all;
+}
+
+.login-form{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    box-shadow: black;
+    width: 150%;
+    padding: 5%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.login-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 20px;
+    right: 20px;
+    top: 20px;
+    bottom: 20p;
+}
+
+.button-primary,
+.button-eye {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.button-primary:hover,
+.button-primary:active,
+.button-eye:hover,
+.button-eye:active {
+    color: inherit !important;       
+    background: inherit !important;  
+    box-shadow: none !important;
+    transform: none !important;
+}

@@ -1,0 +1,33 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Job Board API
+            description: API de gestion des offres d'emploi
+            version: 1.0.0
+        components:
+            securitySchemes:
+                cookieAuth:
+                    type: apiKey
+                    in: cookie
+                    name: PHPSESSID
+            schemas:
+                Error:
+                    type: object
+                    properties:
+                        error:
+                            type: string
+                ValidationErrors:
+                    type: object
+                    properties:
+                        errors:
+                            type: object
+                            additionalProperties:
+                                type: string
+        security:
+            - cookieAuth: []
+
+    areas:
+        default:
+            path_patterns:
+                - ^/api(?!/doc$)
+            host_patterns: []

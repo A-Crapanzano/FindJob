@@ -1,0 +1,83 @@
+name: findjob
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: findjob_database
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: findjob_db
+      MYSQL_USER: findjob_user
+      MYSQL_PASSWORD: findjob_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - findjob_db_data:/var/lib/mysql
+    networks:
+      - findjob_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: findjob_backend
+    restart: unless-stopped
+    volumes:
+      - ./backend:/var/www/backend
+      - backend_vendor:/var/www/backend/vendor
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "mysql://findjob_user:findjob_pass@database:3306/findjob_db?serverVersion=8.0"
+    working_dir: /var/www/backend
+    command: >
+      sh -c "composer install --no-interaction --optimize-autoloader &&
+             php -S 0.0.0.0:8000 -t public"
+    depends_on:
+      - database
+    networks:
+      - findjob_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: findjob_frontend
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - VITE_API_URL=http://localhost:8000/api
+    networks:
+      - findjob_network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: findjob_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: database
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - database
+    networks:
+      - findjob_network
+
+networks:
+  findjob_network:
+    driver: bridge
+    name: findjob_network
+
+volumes:
+  findjob_db_data:
+    name: findjob_db_data
+  backend_vendor:
+    name: findjob_backend_vendor

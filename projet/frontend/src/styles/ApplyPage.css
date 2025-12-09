@@ -1,0 +1,88 @@
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 2.5rem;
+  color: #1aab8a;
+  margin-bottom: 10px;
+}
+
+.main-content > p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 700px;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+.apply-form input,
+.apply-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-family: "Playfair Display", serif;
+}
+
+.apply-form textarea {
+  resize: vertical;
+}
+
+.file-label {
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+.file-label input[type="file"] {
+  margin-top: 8px;
+}
+
+.apply-form button {
+  background: #1aab8a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 800ms ease all;
+  align-self: center;
+}
+
+.apply-form button:hover {
+  background: #fff;
+  color: #1aab8a;
+}
+
+@media (max-width: 768px) {
+  .main-content h1 {
+    font-size: 2rem;
+  }
+
+  .main-content > p {
+    font-size: 1rem;
+  }
+
+  .apply-form {
+    padding: 20px;
+    width: 90%;
+  }
+}
